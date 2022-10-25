@@ -8,7 +8,7 @@
 
 Clone o projeto laradock na sua máquina. Minha pasta raiz é ~/Projetos:
 ```
-$ cd ~/Workspace
+$ cd ~/Projetos
 $ git clone https://github.com/Laradock/laradock.git
 ```
 
@@ -47,7 +47,7 @@ Depois de criado o projeto, iremos dar permissão para nosso arquivo para conseg
 
 Saia do bash e configure o dono da pasta do projeto. No exemplo a seguir, jenni é o nome do meu usuário na máquina host:
 ```
-$ sudo chown -R thiago:www-data meu-blog/
+$ sudo chown -R jenni:www-data tip-website/
 ```
 
 ## Projeto criado!
@@ -83,7 +83,7 @@ server {
 Na máquina, reinicie os containers do laradock para que a mudança faça efeito:
 
 ```
-$ cd ~/Workspace/laradock/
+$ cd ~/Projetos/laradock/
 $ docker-compose restart
 ```
 
