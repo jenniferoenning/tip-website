@@ -1,65 +1,125 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Tip - Transforming your idea into post
+-----------------------
+## Como instalar o ambiente Laravel com Laradock
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+- Para este projeto, estou considerando que você já instalou o Docker, o Docker Compose, Php, Git, e também o Laradock.
 
-## About Laravel
+### Instale o Laradock
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Clone o projeto laradock na sua máquina. Minha pasta raiz é ~/Projetos:
+```
+$ cd ~/Projetos
+$ git clone https://github.com/Laradock/laradock.git
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Entre na pasta laradock e renomeie o arquivo env-example para .env:
+```
+$ cd laradock/
+$ cp env-example .env
+```
+Logo, iremos iniciar os containers que vamos utilizar:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```
+docker-compose up -d nginx phpmyadmin mariadb workspace
+```
+Vamos criar agora nosso projeto laravel, antes iremos ver os containers:
 
-## Learning Laravel
+```
+docker container ls
+```
+Logo, iremos agora utilizar este container:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```
+docker container exec -it laradock_workspace_1 bash
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Ainda no dentro do container "workspace" iremos criar nosso projeto:
+```
+# composer create-project laravel/laravel tip-website
+```
 
-## Laravel Sponsors
+Depois de criado o projeto, iremos dar permissão para nosso arquivo para conseguir mexer com nosso usuário normalmente:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```
+# cd tip-website
+# chmod -R 777 storage bootstrap/cache
+```
 
-### Premium Partners
+Saia do bash e configure o dono da pasta do projeto. No exemplo a seguir, jenni é o nome do meu usuário na máquina host:
+```
+$ sudo chown -R jenni:www-data tip-website/
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Projeto criado!
+--------------------------
 
-## Contributing
+## Agora precisamos configurar o DNS local para o projeto
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+// na máquina host
+$ cd ~/Projetos/laradock/nginx/sites/
+$ cp laravel.conf.example tip-website.conf
+```
 
-## Code of Conduct
+Edite o arquivo .conf:
+```
+$ sudo nano tip-website.conf
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+O que precisamos mudar é o server_name e root apenas - veja que  o root mostra o caminho que estávamos dentro do container! :)
 
-## Security Vulnerabilities
+```
+// tip-website.conf
+server {
+    listen 80;
+    listen [::]:80;
+    
+    server_name tip-website.test;
+    root /var/www/tip-website/public;
+    index index.php index.html index.htm;
+...
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Na máquina, reinicie os containers do laradock para que a mudança faça efeito:
 
-## License
+```
+$ cd ~/Projetos/laradock/
+$ docker-compose restart
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# tip-website
+Adicione uma linha com o server_name no arquivo hosts da máquina host e salve o arquivo:
+
+```
+$ sudo nano /etc/hosts
+// arquivo /etc/hosts
+...
+127.0.0.1       tip-website.test
+```
+
+Pronto, a parte do site está na sua máquina perfeitamente.
+
+---------------
+
+### Configurações extras pro website
+
+Estaremos usando Jetstream para ter um sistema CRUD
+
+Como instalar Jetstream:
+https://jetstream.laravel.com/2.x/installation.html
+
+Em ``` /resources/views/layouts/ ``` nos arquivos ``` app.blade.php ``` e ``` guest.blade.php ``` em ``` scripts ``` você irá substituir as seguintes linhas nos dois arquivos:
+
+```
+    <!-- Scripts -->
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <script src="{{ asset('js/app.js') }}" defer></script>
+```
+
+Agora em ``` /public/ ``` em ``` mix-manifest.json ``` substitua tudo por:
+```
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css"
+}
+```
