@@ -1,7 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\{
-    ShowPosts
+    ShowPosts,
+    CreatePosts
 };
 
 Route::get('/', function () {
@@ -16,7 +17,9 @@ Route::middleware([
     Route::get('/explorar', function () {
         return view('explorar');
     })->name('explorar');
-    
+
     Route::get('postagens', ShowPosts::class)->name('posts');
+    Route::get('/novo_post', CreatePosts::class)->name('create.posts');
+
 
 });
