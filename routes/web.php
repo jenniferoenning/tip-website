@@ -13,10 +13,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/explorar', function () {
+        return view('explorar');
+    })->name('explorar');
     
-    Route::get('explore', ShowPosts::class);
+    Route::get('postagens', ShowPosts::class)->name('posts');
 
 });
