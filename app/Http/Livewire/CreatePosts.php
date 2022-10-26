@@ -27,5 +27,7 @@ class CreatePosts extends Component
         ]);
 
         $this->content = '';
+
+        return redirect('/postagens');
     }
 }

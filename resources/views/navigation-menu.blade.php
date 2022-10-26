@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('posts') }}" :active="request()->routeIs('posts')">
                         {{ __('Postagens') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('create.posts') }}" :active="request()->routeIs('create.posts')">
+                        {{ __('Nova postagem') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
