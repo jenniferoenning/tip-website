@@ -2,8 +2,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\{
     ShowPosts,
-    CreatePosts
+    CreatePosts,
+    ExplorePosts
 };
+use App\Http\Livewire\User\UploadPhoto;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,12 +16,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/explorar', function () {
-        return view('explorar');
-    })->name('explorar');
 
+    Route::get('explorar', ExplorePosts::class)->name('explorar');
     Route::get('postagens', ShowPosts::class)->name('posts');
     Route::get('/novo_post', CreatePosts::class)->name('create.posts');
-
+    Route::get('/upload', UploadPhoto::class)->name('upload.photo.user');
 
 });
