@@ -10,11 +10,12 @@
             @if($posts->isNotEmpty())
                 @foreach($posts as $post)
                         <div class="max-w-sm w-full lg:max-w-full lg:flex">
-                            @if ($post->user->photo)
-                                <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('{{ url("storage/{$post->user->photo}") }}')" title="{{ $post->user->name }}">
+
+                            @if ($post->post_photo_path)
+                                <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('{{ url("storage/{$post->post_photo_path}") }}')" title="{{ $post->user->name }}">
                                 </div>
                             @else
-                                <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('{{ url('imgs/no-image.png') }}')" title="{{ $post->user->name }}">
+                                <div class="bg-center h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('{{ url('imgs/no-image-thumb.png') }}')" title="{{ $post->user->name }}">
                                 </div>
                             @endif
                           <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
@@ -25,8 +26,8 @@
                                 </svg>
                                 Members only
                               </p>
-                              <div class="text-gray-900 font-bold text-xl mb-2">{{ $post->content }}</div>
-                              <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
+                              <div class="text-gray-900 font-bold text-xl mb-2">{{ $post->title }}</div>
+                              <p class="text-gray-700 text-base">{{ $post->description }}</p>
                             </div>
                             <div class="flex items-center">
                                 @if ($post->user->profile_photo_url)

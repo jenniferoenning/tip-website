@@ -48,7 +48,7 @@
               @if($posts->isNotEmpty())
                 @foreach($posts as $post)
                   <div class="flex pt-3 pb-3 items-center">
-                      <p class="w-full text-green">{{ $post->content }}</p>
+                      <p class="w-full text-green">{{ $post->title }}</p>
                       <span class="hidden sm:block">
                         <button type="button" class="inline-flex items-center px-4 py-2 border border-green-500 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                           <svg class="-ml-1 mr-2 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
