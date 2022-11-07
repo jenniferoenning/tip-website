@@ -3,7 +3,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\{
     ShowPosts,
     CreatePosts,
-    ExplorePosts
+    ExplorePosts,
+    ShowPost,
 };
 use App\Http\Livewire\User\UploadPhoto;
 
@@ -20,5 +21,5 @@ Route::middleware([
     Route::get('explorar', ExplorePosts::class)->name('explorar');
     Route::get('postagens', ShowPosts::class)->name('posts');
     Route::get('/novo_post', CreatePosts::class)->name('create.posts');
-
+    Route::get('/post/{id}', ShowPost::class)->name('show.post');
 });

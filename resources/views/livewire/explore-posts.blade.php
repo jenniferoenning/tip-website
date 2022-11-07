@@ -9,6 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @if($posts->isNotEmpty())
                 @foreach($posts as $post)
+                    <a href="post/{{ $post->id }}">
                         <div class="max-w-sm w-full lg:max-w-full lg:flex">
 
                             @if ($post->post_photo_path)
@@ -50,6 +51,7 @@
                             </div>
                           </div>
                         </div>
+                    </a>
                 @endforeach
             @else 
                 <div>
