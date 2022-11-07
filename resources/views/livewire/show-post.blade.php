@@ -27,16 +27,11 @@
               <p class="text-gray-700 text-base">{{ $post->description }}</p>
             </div>
             <div class="flex items-center">
-                @if ($post->user->profile_photo_url)
-                    <img class="w-10 h-10 rounded-full mr-4" src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}">
-                @else
-                    <img class="w-10 h-10 rounded-full mr-4" src="{{ url('imgs/no-image.png') }}" alt="{{ $post->user->name }}">
-                @endif
-
-              <div class="text-sm">
-                <p class="text-gray-900 leading-none">{{ $post->user->name }}</p>
-                <p class="text-gray-600">{{ $post->created_at->format('m/d/Y') }}</p>
-              </div>
+                <img class="w-10 h-10 rounded-full mr-4" src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}">
+                <div class="text-sm">
+                    <p class="text-gray-900 leading-none">{{ $post->user->name }}</p>
+                    <p class="text-gray-600">{{ $post->created_at->format('m/d/Y') }}</p>
+                </div>
             </div>
           </div>
         </div>
