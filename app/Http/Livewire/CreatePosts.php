@@ -6,6 +6,9 @@ use App\Models\Post;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Redirect;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class CreatePosts extends Component
 {
@@ -37,6 +40,7 @@ class CreatePosts extends Component
             'title' => $this->title,
             'description' =>$this->description,
             'post_photo_path' => $path,
+            'slug' => SlugService::createSlug(Post::class, 'slug', $this->title),
         ]);
 
         return redirect('/postagens');

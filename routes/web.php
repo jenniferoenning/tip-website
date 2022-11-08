@@ -17,9 +17,8 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-
     Route::get('explorar', ExplorePosts::class)->name('explorar');
     Route::get('postagens', ShowPosts::class)->name('posts');
     Route::get('/novo_post', CreatePosts::class)->name('create.posts');
-    Route::get('/post/{id}', ShowPost::class)->name('show.post');
+    Route::get('/post/{slug}', ShowPost::class)->name('show.post');
 });
