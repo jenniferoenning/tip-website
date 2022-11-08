@@ -12,6 +12,16 @@ class Post extends Model
 
     protected $fillable = ['title', 'description', 'slug', 'post_photo_path'];
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function sluggable()
     {
         return [

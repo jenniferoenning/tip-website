@@ -7,6 +7,7 @@ use App\Http\Livewire\{
     ShowPost,
 };
 use App\Http\Livewire\User\UploadPhoto;
+use App\Http\Controllers\PostCommentsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,6 +18,8 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
+
+    Route::post('posts/{post:slug}/comentarios', [PostCommentsController::class, 'store']);
     Route::get('explorar', ExplorePosts::class)->name('explorar');
     Route::get('postagens', ShowPosts::class)->name('posts');
     Route::get('/novo_post', CreatePosts::class)->name('create.posts');
