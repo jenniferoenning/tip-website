@@ -11,6 +11,7 @@ class ShowPosts extends Component
 {
     use WithPagination;
     public $searchTerm;
+    public $deleteId = '';
 
     public function render()
     {
@@ -22,5 +23,13 @@ class ShowPosts extends Component
         return view('livewire.show-posts', [
             'posts' => $posts
         ]);
+    }
+
+    public function deleteId($id){
+        $this->deleteId = $id;
+    }
+
+    public function delete(){
+        Post::find($this->deleteId)->delete();
     }
 }
