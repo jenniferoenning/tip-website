@@ -20,10 +20,10 @@
             }
         </style>
     </head>
-    <body class="antialiased flex h-full flex-col">
+    <body class="antialiased flex h-full flex-col bg-gray-100">
         <section>
             <div class="bg-orange-300">
-                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 text-center">
                     @if (Route::has('login'))
                         <div class="fixed top-0 right-0 px-6 py-4 sm:block">
                             @auth
@@ -40,7 +40,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center">
                     <img class="inline-flex h-20 w-20 mb-5" src="{{ asset('imgs/tip-logo-white.png') }}">
                     <h1 class="text-white font-extrabold text-5xl">TIP</h1>
                     <span class="text-white font-extrabold text-2xl">Tranformar ideias em postagens</span>
@@ -56,16 +56,16 @@
                         <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                               <li>
-                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Filme</a>
                               </li>
                               <li>
-                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Stream</a>
                               </li>
                               <li>
-                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Comida</a>
                               </li>
                               <li>
-                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Animal</a>
                               </li>
                             </ul>
                         </div>
@@ -74,10 +74,204 @@
             </div>
         </section>
         <section>
-            <div>
-                
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-5 grid gap-2 lg:grid-cols-3 justify-items-center">
+                <div class="w-full rounded-lg shadow-md lg:max-w-sm max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-5">
+                    <a href="/login">
+                        <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="https://images.pexels.com/photos/10225549/pexels-photo-10225549.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="/login">
+                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
+                        </a>
+                        <figcaption class="flex items-center space-x-3">
+                            <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
+                            <div class="space-y-0.5 font-medium dark:text-white text-left">
+                                <div>Jese Leos</div>
+                                <div class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                    <div class="grid gap-2 lg:grid-cols-3">
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
+                                            <p>1.500</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
+                                            <p>20</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
+                                            <p>23.232</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </figcaption>
+                    </div>
+                </div>
+                <div class="w-full rounded-lg shadow-md lg:max-w-sm max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-5">
+                    <a href="/login">
+                        <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="https://images.pexels.com/photos/12290139/pexels-photo-12290139.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="/login">
+                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
+                        </a>
+                        <figcaption class="flex items-center space-x-3">
+                            <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
+                            <div class="space-y-0.5 font-medium dark:text-white text-left">
+                                <div>Jese Leos</div>
+                                <div class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                    <div class="grid gap-2 lg:grid-cols-3">
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
+                                            <p>1.500</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
+                                            <p>20</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
+                                            <p>23.232</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </figcaption>
+                    </div>
+                </div>
+                <div class="w-full rounded-lg shadow-md lg:max-w-sm max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-5">
+                    <a href="/login">
+                        <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="https://images.pexels.com/photos/14270255/pexels-photo-14270255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="/login">
+                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
+                        </a>
+                        <figcaption class="flex items-center space-x-3">
+                            <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
+                            <div class="space-y-0.5 font-medium dark:text-white text-left">
+                                <div>Jese Leos</div>
+                                <div class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                    <div class="grid gap-2 lg:grid-cols-3">
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
+                                            <p>1.500</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
+                                            <p>20</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
+                                            <p>23.232</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </figcaption>
+                    </div>
+                </div>
+                <div class="w-full rounded-lg shadow-md lg:max-w-sm max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-5">
+                    <a href="/login">
+                        <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="https://images.pexels.com/photos/13903187/pexels-photo-13903187.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="/login">
+                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
+                        </a>
+                        <figcaption class="flex items-center space-x-3">
+                            <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
+                            <div class="space-y-0.5 font-medium dark:text-white text-left">
+                                <div>Jese Leos</div>
+                                <div class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                    <div class="grid gap-2 lg:grid-cols-3">
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
+                                            <p>1.500</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
+                                            <p>20</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
+                                            <p>23.232</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </figcaption>
+                    </div>
+                </div>
+                <div class="w-full rounded-lg shadow-md lg:max-w-sm max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-5">
+                    <a href="/login">
+                        <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="https://images.pexels.com/photos/13756268/pexels-photo-13756268.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="/login">
+                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
+                        </a>
+                        <figcaption class="flex items-center space-x-3">
+                            <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/2220401/pexels-photo-2220401.jpeg?dpr=1" alt="profile picture">
+                            <div class="space-y-0.5 font-medium dark:text-white text-left">
+                                <div>Jese Leos</div>
+                                <div class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                    <div class="grid gap-2 lg:grid-cols-3">
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
+                                            <p>1.500</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
+                                            <p>20</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
+                                            <p>23.232</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </figcaption>
+                    </div>
+                </div>
+                <div class="w-full rounded-lg shadow-md lg:max-w-sm max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-5">
+                    <a href="/login">
+                        <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="/login">
+                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
+                        </a>
+                        <figcaption class="flex items-center space-x-3">
+                            <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
+                            <div class="space-y-0.5 font-medium dark:text-white text-left">
+                                <div>Jese Leos</div>
+                                <div class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                    <div class="grid gap-2 lg:grid-cols-3">
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
+                                            <p>1.500</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
+                                            <p>20</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
+                                            <p>23.232</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </figcaption>
+                    </div>
+                </div>
             </div>
         </section>
+        <footer class="bg-blue-200 py-8 mt-5">
+            <p class="text-gray-700 font-extrabold text-center">Copyright © 2022 Tip. All Rights Reseverd</p>
+        </footer>
         <script src="../path/to/flowbite/dist/flowbite.js"></script>
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
     </body>

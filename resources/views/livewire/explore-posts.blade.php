@@ -5,53 +5,52 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <section>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-5 grid gap-2 lg:grid-cols-3 justify-items-center">
             @if($posts->isNotEmpty())
                 @foreach($posts as $post)
-                        <div class="max-w-sm w-full lg:max-w-full lg:flex">
-
-                            @if ($post->post_photo_path)
-                                <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('{{ url("storage/{$post->post_photo_path}") }}')" title="{{ $post->user->name }}">
-                                </div>
-                            @else
-                                <div class="bg-center h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('{{ url('imgs/no-image-thumb.png') }}')" title="{{ $post->user->name }}">
-                                </div>
-                            @endif
+                    <div class="w-full rounded-lg shadow-md lg:max-w-sm max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-5">
+                        @if ($post->post_photo_path)
                             <a href="post/{{ $post->slug }}">
-                                <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                                    <div class="mb-8">
-                                        <p class="text-sm text-gray-600 flex items-center">
-                                        <svg class="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
-                                        </svg>
-                                        Members only
-                                        </p>
-                                        <div class="text-gray-900 font-bold text-xl mb-2">{{ $post->title }}</div>
-                                        <p class="text-gray-700 text-base">{{ $post->description }}</p>
-                                    </div>
-                                    <div class="flex items-center">
-                                        @if ($post->user->profile_photo_url)
-                                            <img class="w-10 h-10 rounded-full mr-4" src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}">
-                                        @else
-                                            <img class="w-10 h-10 rounded-full mr-4" src="{{ url('imgs/no-image.png') }}" alt="{{ $post->user->name }}">
-                                        @endif
-
-                                        <div class="text-sm">
-                                            <p class="text-gray-900 leading-none">{{ $post->user->name }}</p>
-                                            <p class="text-gray-600">{{ $post->created_at->format('m/d/Y') }}</p>
-                                        </div>
-                                        <div class="text-sm">
-                                            @if ($post->likes->count())
-                                                <a href="#" wire:click.prevent="unlike({{ $post->id }})">Descurtir</a>
-                                            @else
-                                                <a href="#" wire:click.prevent="like({{ $post->id }})">Curtir</a>
-                                            @endif
+                                <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="{{ url("storage/{$post->post_photo_path}") }}" alt="" />
+                            </a>
+                        @else
+                           <a href="post/{{ $post->slug }}">
+                                <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="{{ url('imgs/no-image-thumb.png') }}" alt="" />
+                            </a>
+                        @endif
+                        <div class="p-5">
+                            <a href="post/{{ $post->slug }}">
+                                <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $post->title }}</h5>
+                            </a>
+                            <figcaption class="flex items-center space-x-3">
+                                @if ($post->user->profile_photo_url)
+                                    <img class="w-9 h-9 rounded-full object-cover" src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}">
+                                @else
+                                    <img class="w-9 h-9 rounded-full object-cover" src="{{ url('imgs/no-image.png') }}" alt="{{ $post->user->name }}">
+                                @endif
+                                <div class="space-y-0.5 font-medium dark:text-white text-left">
+                                    <div>{{ $post->user->name }}</div>
+                                    <div class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                        <div class="grid gap-2 lg:grid-cols-3">
+                                            <div class="flex items-center">
+                                                <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
+                                                <p>1.500</p>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
+                                                <p>20</p>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
+                                                <p>23.232</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </figcaption>
                         </div>
+                    </div>
                 @endforeach
             @else 
                 <div>
@@ -59,5 +58,5 @@
                 </div>
             @endif
         </div>
-    </div>
+    </section>
 </div>
