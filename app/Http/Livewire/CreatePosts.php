@@ -20,7 +20,11 @@ class CreatePosts extends Component
 
     public function render()
     {
-        return view('livewire.create-posts');
+        $user = auth()->user();
+
+        return view('livewire.create-posts', [
+            'user' => $user
+        ]);
     }
 
     public function create()

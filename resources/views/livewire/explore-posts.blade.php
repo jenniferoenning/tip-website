@@ -24,11 +24,7 @@
                                 <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $post->title }}</h5>
                             </a>
                             <figcaption class="flex items-center space-x-3">
-                                @if ($post->user->profile_photo_url)
-                                    <img class="w-9 h-9 rounded-full object-cover" src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}">
-                                @else
-                                    <img class="w-9 h-9 rounded-full object-cover" src="{{ url('imgs/no-image.png') }}" alt="{{ $post->user->name }}">
-                                @endif
+                                <img class="w-9 h-9 rounded-full object-cover" src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}">
                                 <div class="space-y-0.5 font-medium dark:text-white text-left">
                                     <div>{{ $post->user->name }}</div>
                                     <div class="text-sm font-light text-gray-500 dark:text-gray-400">
