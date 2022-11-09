@@ -20,35 +20,56 @@
             }
         </style>
     </head>
-    <body class="antialiased">
+    <body class="antialiased flex h-full flex-col">
         <section>
-            <div class="bg-orange-200">
-                <div class="sm:items-center py-4 sm:pt-0 relative flex items-top justify-center">
+            <div class="bg-orange-300">
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32">
                     @if (Route::has('login'))
-                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                        <div class="fixed top-0 right-0 px-6 py-4 sm:block">
                             @auth
                                 <a href="{{ url('/explorar') }}" class="text-sm text-white">Explorar</a>
                             @else
                                 @if (Route::has('register'))
-                                <button class="bg-orange-300 rounded py-2 px-4 hover:bg-orange-400">
-                                    <a href="{{ route('register') }}" class="text-sm text-white">Cadastrar</a>
+                                <button class="bg-orange-400 rounded py-2 px-4 hover:bg-orange-500">
+                                    <a href="{{ route('register') }}" class="text-sm text-white font-extrabold">Cadastrar</a>
                                 </button>
                                 @endif
 
-                                <a href="{{ route('login') }}" class="ml-4 text-sm text-white">Entrar</a>
+                                <a href="{{ route('login') }}" class="ml-4 text-sm text-white font-extrabold">Entrar</a>
                             @endauth
                         </div>
                     @endif
                 </div>
-                <div class="sm:items-center justify-center">
-                    <div>
-                        <a href="{{ route('explorar') }}">
-                            <x-jet-application-mark class="block h-9 w-auto" />
-                        </a>
-                    </div>
-                    <h1 class="text-white">TIP</h1>
-                    <span>Tranformar ideias em postagens</span>
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32">
+                    <img class="inline-flex h-20 w-20 mb-5" src="{{ asset('imgs/tip-logo-white.png') }}">
+                    <h1 class="text-white font-extrabold text-5xl">TIP</h1>
+                    <span class="text-white font-extrabold text-2xl">Tranformar ideias em postagens</span>
+                    <div class="mt-3">
+                        <input class="rounded-md border-none focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 text-gray-600 text-sm" type="search" autocomplete="off" placeholder="Pesquise">
 
+                        <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-white bg-white focus:ring-white-300 font-medium rounded-md text-sm px-4 py-2 text-center inline-flex items-center text-gray-600" type="button">Categoria 
+                            <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                              <li>
+                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                              </li>
+                              <li>
+                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                              </li>
+                              <li>
+                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                              </li>
+                              <li>
+                                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                              </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -57,5 +78,7 @@
                 
             </div>
         </section>
+        <script src="../path/to/flowbite/dist/flowbite.js"></script>
+        <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
     </body>
 </html>
