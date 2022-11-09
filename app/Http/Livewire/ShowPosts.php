@@ -10,11 +10,14 @@ use Livewire\WithPagination;
 class ShowPosts extends Component
 {
     use WithPagination;
+    public $searchTerm;
 
     public function render()
     {
         $user = auth()->user();
-        $posts = $user->posts()->latest()->paginate(7);
+
+        $query = '%'.$this->searchTerm.'%';
+        $posts = $user->posts()->where('title', 'like', '%'.$this->searchTerm.'%')->latest()->paginate(7);
 
         return view('livewire.show-posts', [
             'posts' => $posts

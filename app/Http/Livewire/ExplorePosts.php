@@ -9,10 +9,13 @@ use Livewire\WithPagination;
 class ExplorePosts extends Component
 {
     use WithPagination;
+    public $searchTerm;
 
     public function render()
     {
-        $posts = Post::with('user')->latest()->paginate(6);
+        $query = '%'.$this->searchTerm.'%';
+
+        $posts = Post::where('title', 'like', '%'.$this->searchTerm.'%')->latest()->paginate(6);
 
         return view('livewire.explore-posts', [
             'posts' => $posts
