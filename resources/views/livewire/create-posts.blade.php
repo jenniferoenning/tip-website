@@ -14,29 +14,15 @@
                 <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="{{ url('imgs/no-image-thumb.png') }}" alt="" />
             @endif
             <div class="p-5">
-                <a href="/login">
-                    <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
-                </a>
+                @if($message_title == true)
+                    <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $message_title }}</h5>
+                @else
+                    <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Título aqui!</h5>
+                @endif
                 <figcaption class="flex items-center space-x-3">
                     <img class="w-9 h-9 rounded-full object-cover" src="{{ url("{$user->profile_photo_url}") }}" alt="profile picture">
                     <div class="space-y-0.5 font-medium dark:text-white text-left">
                         <div>{{ $user->name }}</div>
-                        <div class="text-sm font-light text-gray-500 dark:text-gray-400">
-                            <div class="grid gap-2 lg:grid-cols-3">
-                                <div class="flex items-center">
-                                    <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
-                                    <p>1.500</p>
-                                </div>
-                                <div class="flex items-center">
-                                    <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
-                                    <p>20</p>
-                                </div>
-                                <div class="flex items-center">
-                                    <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
-                                    <p>23.232</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </figcaption>
             </div>
@@ -49,7 +35,7 @@
                     <div class="my-5">
                         <label for="title">{{ __('Título da postagem') }}</label>
                         <br>
-                        <input class="border-gray-300 focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" type="text" name="title" id="title" wire:model="title" placeholder="Ex: Bolo de morango">
+                        <input class="border-gray-300 focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" type="text" name="title" id="title" wire:model="message_title" placeholder="Ex: Bolo de morango">
                         @error('title') {{ $message }} @enderror
                     </div>
 

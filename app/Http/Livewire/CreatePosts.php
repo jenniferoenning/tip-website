@@ -17,11 +17,12 @@ class CreatePosts extends Component
     public $post_photo_path;
     public $title;
     public $description;
+    public $message_title;
 
     public function render()
     {
         $user = auth()->user();
-
+        
         return view('livewire.create-posts', [
             'user' => $user
         ]);
