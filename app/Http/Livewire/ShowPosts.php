@@ -12,7 +12,7 @@ class ShowPosts extends Component
 
     public function render()
     {
-        $posts = Post::with('user')->latest()->paginate(5);
+        $posts = Post::with('user')->latest()->paginate(7);
 
         return view('livewire.show-posts', [
             'posts' => $posts

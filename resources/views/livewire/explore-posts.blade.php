@@ -11,16 +11,16 @@
                 @foreach($posts as $post)
                     <div class="w-full rounded-lg shadow-md lg:max-w-sm max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-5">
                         @if ($post->post_photo_path)
-                            <a href="post/{{ $post->slug }}">
+                            <a href="postagem/{{ $post->slug }}" :active="request()->routeIs('show.post')">
                                 <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="{{ url("storage/{$post->post_photo_path}") }}" alt="" />
                             </a>
                         @else
-                           <a href="post/{{ $post->slug }}">
+                           <a href="postagem/{{ $post->slug }}" :active="request()->routeIs('show.post')">
                                 <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="{{ url('imgs/no-image-thumb.png') }}" alt="" />
                             </a>
                         @endif
                         <div class="p-5">
-                            <a href="post/{{ $post->slug }}">
+                            <a href="postagem/{{ $post->slug }}" :active="request()->routeIs('show.post')">
                                 <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $post->title }}</h5>
                             </a>
                             <figcaption class="flex items-center space-x-3">

@@ -22,6 +22,6 @@ Route::middleware([
     Route::post('posts/{post:slug}/comentarios', [PostCommentsController::class, 'store']);
     Route::get('explorar', ExplorePosts::class)->name('explorar');
     Route::get('postagens', ShowPosts::class)->name('posts');
-    Route::get('/novo_post', CreatePosts::class)->name('create.posts');
-    Route::get('/post/{slug}', ShowPost::class)->name('show.post');
+    Route::get('/novo_postagem', CreatePosts::class)->name('create.posts');
+    Route::get('/postagem/{slug}', ShowPost::class)->name('show.post');
 });
