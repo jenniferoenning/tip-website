@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Post;
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -12,7 +13,8 @@ class ShowPosts extends Component
 
     public function render()
     {
-        $posts = Post::with('user')->latest()->paginate(7);
+        $user = auth()->user();
+        $posts = $user->posts()->latest()->paginate(7);
 
         return view('livewire.show-posts', [
             'posts' => $posts

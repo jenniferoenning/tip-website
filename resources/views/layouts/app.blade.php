@@ -43,5 +43,9 @@
         <script src="../path/to/flowbite/dist/flowbite.js"></script>
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
         @livewireScripts
+        
+        <footer class="bg-blue-200 py-8">
+            <p class="text-gray-700 font-extrabold text-center">Copyright © 2022 Tip. All Rights Reseverd</p>
+        </footer>
     </body>
 </html>

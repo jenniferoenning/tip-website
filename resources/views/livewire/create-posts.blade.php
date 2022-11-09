@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="xl:container mx-auto my-5">
+    <div class="xl:container mx-auto py-5">
       <div class="h-100 w-full grid gap-1 lg:grid-cols-2 justify-center justify-center bg-teal-lightest font-sans">
         <div class="w-full rounded-lg shadow-md lg:max-w-sm max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-5 justify-self-center">
             @if ($post_photo_path)
