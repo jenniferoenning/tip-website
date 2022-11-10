@@ -7,7 +7,11 @@
 
     <section>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-5 justify-items-center">
-            <p class="text-sm text-gray-600">Última postagem {{ $posts[0]->created_at->diffForHumans() }}</p>
+            @if($posts->isNotEmpty())
+                <p class="text-sm text-gray-600">Última postagem {{ $posts[0]->created_at->diffForHumans() }}</p>
+            @else
+                <p class="text-sm text-gray-600">Sem postagens por aqui :(</p>
+            @endif
             <form class="mt-3">
                 <div class="flex">
                     <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Your Email</label>
@@ -110,10 +114,6 @@
                             </div>
                         </div>
                     @endforeach
-                @else 
-                    <div>
-                        <h2>Nenhum post</h2>
-                    </div>
                 @endif
             </div>
         </div>

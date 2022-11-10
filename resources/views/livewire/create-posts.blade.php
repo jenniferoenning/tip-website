@@ -14,8 +14,8 @@
                 <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="{{ url('imgs/no-image-thumb.png') }}" alt="" />
             @endif
             <div class="p-5">
-                @if($message_title == true)
-                    <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $message_title }}</h5>
+                @if($title == true)
+                    <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $title }}</h5>
                 @else
                     <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Título aqui!</h5>
                 @endif
@@ -35,7 +35,7 @@
                     <div class="my-5">
                         <label for="title">{{ __('Título da postagem') }}</label>
                         <br>
-                        <input class="border-gray-300 focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" type="text" name="title" id="title" wire:model="message_title" placeholder="Ex: Bolo de morango">
+                        <input class="border-gray-300 focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" type="text" name="title" id="title" wire:model="title" placeholder="Ex: Bolo de morango">
                         @error('title') {{ $message }} @enderror
                     </div>
 
