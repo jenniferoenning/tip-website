@@ -52,27 +52,38 @@
                     </p>
                 @endauth
             </div>
-            
         </section>
-
-        <section class="col-span-8 col-start-5 mt-10 space-y-6">
-            <div class="xl:container mx-auto my-5">
-                <article class="bg-gray-50 border border-gray-100 p-6 rounded-xl rounded">
-                    <div class="flex space-x-4">
-                        <div class="flex-shrink-0">
-                            <img src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}" width="60" height="60" class="rounded">
-                        </div>
-                        <header>
-                            <h3 class="front-bold">{{ $post->user->name }}</h3>
-                            <p class="text-xs text-gray-600">Postado <time>8 meses atrás</time></p>
-                        </header>
+        @if($comments->isNotEmpty())
+            @foreach($comments as $comment)
+                <section class="col-span-8 col-start-5 mt-10 space-y-6">
+                    <div class="xl:container mx-auto my-5">
+                        <article class="bg-gray-50 border border-gray-100 p-6 rounded-xl rounded">
+                            <div class="flex space-x-4">
+                                <div class="flex-shrink-0">
+                                    <img src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}" width="60" height="60" class="rounded">
+                                </div>
+                                <header>
+                                    <h3 class="front-bold">{{ $post->user->name }}</h3>
+                                    <p class="text-xs text-gray-600">Postado {{ $post->created_at->diffForHumans() }}</p>
+                                </header>
+                            </div>
+                            <br>
+                            <div>
+                                <p>{{ $comment->body }}</p>
+                            </div>
+                        </article>
                     </div>
-                    <br>
-                    <div>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                </article>
+                </section>
+            @endforeach
+            @else 
+                <div>
+                    <h2>Nenhum comentário</h2>
+                </div>
+            @endif
+        <div class="max-w-7xl mx-auto lg:px-8">
+            <div class="py-5">
+              
             </div>
-        </section>
+        </div>
     </div>
 </div>
