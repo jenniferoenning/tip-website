@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $fillable = ['title', 'description', 'slug', 'post_photo_path'];
+    protected $fillable = ['title', 'description', 'slug', 'post_photo_path', 'category_id', 'user_id'];
 
     public function comments()
     {
@@ -43,5 +43,10 @@ class Post extends Model
                 $query->where('user_id', auth()->user()->id);
             }
         });
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

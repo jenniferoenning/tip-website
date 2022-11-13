@@ -9,6 +9,7 @@
 
             <div class="xl:container mx-auto my-5">
                 <h1 class="text-2xl text-gray-600"> {{ $post->title}} </h1>
+                <h1 class="text-2xl text-gray-600"> {{ $post->category['name']}} </h1>
                 <div class="max-w-sm w-full lg:max-w-full lg:flex justify-center">
                     @if ($post->post_photo_path)
                         <div class="flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
