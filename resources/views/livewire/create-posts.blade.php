@@ -17,7 +17,7 @@
                 @if($title == true)
                     <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $title }}</h5>
                 @else
-                    <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Título aqui!</h5>
+                    <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white"></h5>
                 @endif
                 <figcaption class="flex items-center space-x-3">
                     <img class="w-9 h-9 rounded-full object-cover" src="{{ url("{$user->profile_photo_url}") }}" alt="profile picture">
