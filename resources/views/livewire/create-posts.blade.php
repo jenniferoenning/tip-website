@@ -33,7 +33,7 @@
 
                 <form method="post" wire:submit.prevent="create" enctype="multipart/form-data">
                     <div class="my-5">
-                        <label for="title">{{ __('Título da postagem') }}</label>
+                        <label for="title" class="text-gray-700">{{ __('Título da postagem') }}</label>
                         <br>
                         <input class="border-gray-300 focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" type="text" name="title" id="title" wire:model="title" placeholder="Ex: Bolo de morango">
                         @error('title') {{ $message }} @enderror
@@ -41,17 +41,17 @@
 
 
                     <div class="my-5">
-                        <label for="description">{{ __('Descrição da postagem') }}</label>
+                        <label for="description" class="text-gray-700">{{ __('Descrição da postagem') }}</label>
                         <br>
                         <textarea class="border-gray-300 focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" type="text" name="description" id="description" wire:model="description"></textarea> 
                         @error('description') {{ $message }} @enderror
                     </div>
                     
-                    <span class="text-gray-700">Select Category</span>
-                    <select wire:model="category" name="category" class="block w-full mt-1 rounded-md">
-                        <option value="" required>Selecione uma categoria</option>
+                    <span class="text-gray-700">Categoria</span>
+                    <select wire:model="category" name="category" class="border-gray-300 focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                        <option class="text-gray-500" value="" required>Selecione uma categoria</option>
                         @foreach ($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option class="text-gray-700" value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach
                     </select>
 
