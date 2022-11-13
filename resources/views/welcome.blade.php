@@ -71,10 +71,6 @@
                                             <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
                                             <p>20</p>
                                         </div>
-                                        <div class="flex items-center">
-                                            <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
-                                            <p>23.232</p>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -102,10 +98,6 @@
                                         <div class="flex items-center">
                                             <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
                                             <p>20</p>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
-                                            <p>23.232</p>
                                         </div>
                                     </div>
                                 </div>
@@ -135,10 +127,6 @@
                                             <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
                                             <p>20</p>
                                         </div>
-                                        <div class="flex items-center">
-                                            <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
-                                            <p>23.232</p>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -166,10 +154,6 @@
                                         <div class="flex items-center">
                                             <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
                                             <p>20</p>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
-                                            <p>23.232</p>
                                         </div>
                                     </div>
                                 </div>
@@ -199,10 +183,6 @@
                                             <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
                                             <p>20</p>
                                         </div>
-                                        <div class="flex items-center">
-                                            <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
-                                            <p>23.232</p>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -230,10 +210,6 @@
                                         <div class="flex items-center">
                                             <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
                                             <p>20</p>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <img class="mr-2" width="20" height="15" src="{{ asset('imgs/visibility.svg') }}">
-                                            <p>23.232</p>
                                         </div>
                                     </div>
                                 </div>
