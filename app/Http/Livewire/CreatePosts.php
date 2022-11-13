@@ -19,7 +19,7 @@ class CreatePosts extends Component
     public $title;
     public $description;
     public $message_title;
-    public $category_id;
+    public $category;
 
     public function render()
     {
@@ -32,25 +32,26 @@ class CreatePosts extends Component
         ]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $this->validate([
             'post_photo_path' => 'required|image|max:1024',
             'description' => 'required:min:3|max:255',
             'title' => 'required:min:3|max:255',
-            'category_id' => 'required|exists:App\Models\Category,id'
+            'category' => 'required'
         ]);
 
         $user = auth()->user();
         $nameFile = Str::slug(auth()->user()->name) . '.' . $this->post_photo_path->getClientOriginalExtension();
         $path = $this->post_photo_path->storeAs('users', $nameFile);
+        $category_id = $this->category;
 
         auth()->user()->posts()->create([
             'title' => $this->title,
             'description' =>$this->description,
             'post_photo_path' => $path,
             'slug' => SlugService::createSlug(Post::class, 'slug', $this->title),
-            'category_id' => $this->category_id,
+            'category_id' => $category_id
         ]);
 
         return redirect('/postagens');
