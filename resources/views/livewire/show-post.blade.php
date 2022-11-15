@@ -82,7 +82,9 @@
             @endif
         <div class="max-w-7xl mx-auto lg:px-8">
             <div class="py-5">
-              
+                @if($links->links())
+                    {{ $links->links() }}
+                @endif
             </div>
         </div>
     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Redirect;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use App\Models\User;
+use Livewire\WithPagination;
 use App\Models\Post;
 use App\Models\Comment;
 use Livewire\Component;
@@ -14,18 +15,25 @@ class ShowPost extends Component
 {
     public $post;
     public $comments;
+    use WithPagination;
+
+    public function render()
+    {
+        $post = $this->post;
+        $post_id = $this->post->id;
+        $this->comments = Comment::where('post_id', $post_id)->latest()->paginate(5);
+        $links = $this->comments;
+        $this->comments = collect($this->comments->items());
+
+        return view('livewire.show-post', [
+            'post' => $post,
+            'comments' => compact($this->comments),
+            'links' => $links
+        ]);
+    }
 
     public function mount($slug)
     {
         $this->post = Post::where('slug', $slug)->firstOrFail();
-        $id_post_search = Post::where('slug', $slug)->firstOrFail();
-        $post_id = $id_post_search->id;
-        $this->comments = Comment::where('post_id', $post_id)->get();
-
-        return view('livewire.show-post', [
-            'post' => $this->post,
-            'comments' => $this->comments
-        ]);
     }
-
 }
