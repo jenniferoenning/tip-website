@@ -36,7 +36,7 @@
                     </div>
                     <div class="flex">
                         <div>
-                            <img class="w-10 h-10 mr-4 rounded-full object-cover" src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}">
+                            <img class="w-10 h-10 mr-4 rounded-full object-cover" src="{{ url("{$user->profile_photo_url}") }}" alt="{{ $user->name }}">
                         </div>
                         <div class="flex">
                             <button type="submit" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-orange-300 rounded-lg focus:ring-4 focus:ring-orange-400 hover:bg-orange-400">
@@ -60,11 +60,11 @@
                         <article class="bg-gray-50 border border-gray-100 p-6 rounded-xl rounded">
                             <div class="flex space-x-4">
                                 <div class="flex-shrink-0">
-                                    <img src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}" width="60" height="60" class="rounded">
+                                    <img src="{{ url("{$comment->author->profile_photo_url}") }}" alt="{{ $user->name }}" width="60" height="60" class="rounded">
                                 </div>
                                 <header>
-                                    <h3 class="front-bold">{{ $post->user->name }}</h3>
-                                    <p class="text-xs text-gray-600">Postado {{ $post->created_at->diffForHumans() }}</p>
+                                    <h3 class="front-bold">{{ $comment->author->name }}</h3>
+                                    <p class="text-xs text-gray-600">Postado {{ $comment->author->created_at->diffForHumans() }}</p>
                                 </header>
                             </div>
                             <br>
@@ -75,11 +75,11 @@
                     </div>
                 </section>
             @endforeach
-            @else 
-                <div>
-                    <h2>Nenhum comentário</h2>
-                </div>
-            @endif
+        @else 
+            <div>
+                <h2>Nenhum comentário</h2>
+            </div>
+        @endif
         <div class="max-w-7xl mx-auto lg:px-8">
             <div class="py-5">
                 @if($links->links())
