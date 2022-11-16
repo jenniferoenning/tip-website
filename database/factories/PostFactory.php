@@ -27,7 +27,7 @@ class PostFactory extends Factory
             'title' => $this->faker->paragraph(2),
             'description' => $this->faker->paragraph(2),
             'user_id' => User::factory(),
-            'category_id' => Category::factory(),
+            'category_id' => Category::all()->random()->id,
             //'post_photo_path' => $this->faker->imageUrl(),
         ];
     }
