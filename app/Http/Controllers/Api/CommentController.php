@@ -16,10 +16,13 @@ class CommentController extends Controller
     public function index()
     {
        $comments = Comment::all();
-
-        return response()->json([
-            'comments' => $comments
-        ]);
+       
+        if($comments){
+            return response()->json($comments);
+        }
+        else {
+            return response()->json(false);
+        }
     }
 
     /**
