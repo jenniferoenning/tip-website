@@ -8,7 +8,9 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Redirect;
+
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class CreatePosts extends Component
@@ -20,6 +22,14 @@ class CreatePosts extends Component
     public $description;
     public $message_title;
     public $category;
+    public $post;
+
+    protected $rules = [
+        'post_photo_path' => 'required|image|max:1024',
+        'description' => 'required:min:3|max:255',
+        'title' => 'required:min:3|max:255',
+        'category' => 'required'
+    ];
 
     public function render()
     {
@@ -32,26 +42,20 @@ class CreatePosts extends Component
         ]);
     }
 
-    public function create(Request $request)
+    public function submit(Request $request)
     {
-        $this->validate([
-            'post_photo_path' => 'required|image|max:1024',
-            'description' => 'required:min:3|max:255',
-            'title' => 'required:min:3|max:255',
-            'category' => 'required'
-        ]);
-
-        $user = auth()->user();
-        $nameFile = Str::slug(auth()->user()->name) . '.' . $this->post_photo_path->getClientOriginalExtension();
-        $path = $this->post_photo_path->storeAs('users', $nameFile);
+        $this->validate();
+        
+        $path = $this->post_photo_path->store('posts');
         $category_id = $this->category;
 
-        auth()->user()->posts()->create([
+        Post::create([
+            'user_id' => auth()->id(),
             'title' => $this->title,
-            'description' =>$this->description,
-            'post_photo_path' => $path,
+            'description' => $this->description,
+            'category_id' => $category_id,
             'slug' => SlugService::createSlug(Post::class, 'slug', $this->title),
-            'category_id' => $category_id
+            'post_photo_path' => $path,
         ]);
 
         return redirect('/postagens');

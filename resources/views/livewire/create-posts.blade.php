@@ -31,12 +31,13 @@
             <div>
                 <h1 class="text-lg text-center">Nova postagem</h1>
 
-                <form method="post" wire:submit.prevent="create" enctype="multipart/form-data">
+                <form method="post" wire:submit.prevent="submit" enctype="multipart/form-data">
+                    @csrf
                     <div class="my-5">
                         <label for="title" class="text-gray-700">{{ __('Título da postagem') }}</label>
                         <br>
                         <input class="border-gray-300 focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" type="text" name="title" id="title" wire:model="title" placeholder="Ex: Bolo de morango">
-                        @error('title') {{ $message }} @enderror
+                        @error('title') <span class="error">{{ $message }}</span> @enderror
                     </div>
 
 
@@ -44,7 +45,7 @@
                         <label for="description" class="text-gray-700">{{ __('Descrição da postagem') }}</label>
                         <br>
                         <textarea class="border-gray-300 focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" type="text" name="description" id="description" wire:model="description"></textarea> 
-                        @error('description') {{ $message }} @enderror
+                        @error('description') <span class="error">{{ $message }}</span> @enderror
                     </div>
                     
                     <span class="text-gray-700">Categoria</span>
@@ -54,6 +55,7 @@
                             <option class="text-gray-700" value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach
                     </select>
+                    @error('category') <span class="error">{{ $message }}</span> @enderror
 
                     <div class="my-5">
                         <div class="flex justify-center items-center w-full">
@@ -63,8 +65,8 @@
                                     <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Clique para enviar a foto</span></p>
                                     <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                                 </div>
-                                <input id="dropzone-file" type="file" wire:model="post_photo_path" class="hidden" />
-                                @error('post_photo_path') {{ $message }} @enderror
+                                <input id="dropzone-file" name="post_photo_path" type="file" wire:model="post_photo_path" class="hidden" />
+                                @error('post_photo_path') <span class="error">{{ $message }}</span> @enderror
                             </label>
                         </div>
                     </div>
