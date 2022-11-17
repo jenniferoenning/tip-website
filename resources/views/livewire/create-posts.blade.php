@@ -31,7 +31,7 @@
             <div>
                 <h1 class="text-lg text-center">Nova postagem</h1>
 
-                <form method="post" wire:submit.prevent="submit" action="{{ route('update.posts') }}" enctype="multipart/form-data">
+                <form enctype="multipart/form-data">
                     @csrf
                     <div class="my-5">
                         <label for="title" class="text-gray-700">{{ __('Título da postagem') }}</label>
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <div class="text-center bg-orange-300 rounded py-2 px-4 hover:bg-orange-400">
-                        <button class="text-white" type="submit">Criar postagem</button>
+                        <button class="text-white" wire:click.prevent="store()">Criar postagem</button>
                     </div>
                 </form>
             </div>

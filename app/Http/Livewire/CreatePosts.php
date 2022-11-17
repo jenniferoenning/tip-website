@@ -43,7 +43,7 @@ class CreatePosts extends Component
         ]);
     }
 
-    public function submit(Request $request)
+    public function store(Request $request)
     {
         $this->validate();
         
@@ -65,4 +65,5 @@ class CreatePosts extends Component
 
         return redirect('/postagens');
     }
+
 }
