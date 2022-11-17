@@ -8,6 +8,11 @@
     <div class="xl:container mx-auto py-5">
       <div class="h-100 w-full grid gap-1 lg:grid-cols-2 justify-center justify-center bg-teal-lightest font-sans">
         <div class="w-full rounded-lg shadow-md lg:max-w-sm max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-5 justify-self-center">
+            @if ($post_photo_path)
+                <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="{{ $post_photo_path->temporaryUrl() }}" alt="" />
+            @else
+                <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="{{ url('imgs/no-image-thumb.png') }}" alt="" />
+            @endif
             <div class="p-5">
                 @if($title == true)
                     <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $title }}</h5>
@@ -26,7 +31,7 @@
             <div>
                 <h1 class="text-lg text-center">Nova postagem</h1>
 
-                <form method="post" wire:submit.prevent="submit" enctype="multipart/form-data">
+                <form method="post" action="{{ route('create.posts') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="my-5">
                         <label for="title" class="text-gray-700">{{ __('Título da postagem') }}</label>
