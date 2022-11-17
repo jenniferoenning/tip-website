@@ -31,7 +31,7 @@
             <div>
                 <h1 class="text-lg text-center">Nova postagem</h1>
 
-                <form method="post" action="{{ route('create.posts') }}" enctype="multipart/form-data">
+                <form method="post" wire:submit.prevent="submit" action="{{ route('update.posts') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="my-5">
                         <label for="title" class="text-gray-700">{{ __('Título da postagem') }}</label>
