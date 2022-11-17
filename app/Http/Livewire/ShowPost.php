@@ -30,7 +30,7 @@ class ShowPost extends Component
 
         return view('livewire.show-post', [
             'post' => $post,
-            'comments' => compact($this->comments),
+            'comments' => $comments,
             'links' => $links,
             'user' => $user
         ]);
