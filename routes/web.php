@@ -20,7 +20,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
 
-    Route::get('/novo_postagem', CreatePosts::class)->name('create.posts');
+    Route::get('/nova_postagem', CreatePosts::class)->name('create.posts');
     Route::post('posts/{post:slug}/comentarios', [PostCommentsController::class, 'store']);
     Route::get('explorar', ExplorePosts::class)->name('explorar');
     Route::get('postagens', ShowPosts::class)->name('posts');
