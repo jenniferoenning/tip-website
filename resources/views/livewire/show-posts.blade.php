@@ -43,7 +43,7 @@
                         <div class="w-full rounded-lg shadow-md lg:max-w-sm max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-5">
                             @if ($post->post_photo_path)
                                 <a href="postagem/{{ $post->slug }}" :active="request()->routeIs('show.post')">
-                                    <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="{{ url("storage/{$post->post_photo_path}") }}" alt="" />
+                                    <img style="height: 256px;" class="w-full object-cover rounded-t-lg" src="{{ $post->url_image }}" alt="" />
                                 </a>
                             @else
                                <a href="postagem/{{ $post->slug }}" :active="request()->routeIs('show.post')">

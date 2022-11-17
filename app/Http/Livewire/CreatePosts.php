@@ -9,6 +9,7 @@ use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Redirect;
 
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -46,7 +47,10 @@ class CreatePosts extends Component
     {
         $this->validate();
         
-        $path = $this->post_photo_path->store('posts');
+        $path = $this->post_photo_path->store('posts', 's3');
+
+        Storage::disk('s3')->setVisibility($path, 'public');
+
         $category_id = $this->category;
 
         Post::create([
@@ -55,7 +59,8 @@ class CreatePosts extends Component
             'description' => $this->description,
             'category_id' => $category_id,
             'slug' => SlugService::createSlug(Post::class, 'slug', $this->title),
-            'post_photo_path' => $path,
+            'post_photo_path' => basename($path),
+            'url_image' => Storage::disk('s3')->url($path)
         ]);
 
         return redirect('/postagens');
