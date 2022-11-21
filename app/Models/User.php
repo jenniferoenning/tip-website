@@ -74,4 +74,31 @@ class User extends Authenticatable
     {
         return $this->profile_photo_path;
     }
+
+    public function user(Request $request){
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|email|unique:users'
+        ]);
+        if($validator->fails()){
+            return new JsonResponse(
+                [
+                    'success' => false, 
+                    'message' => $validator->errors()
+                ], 422
+            );
+        }
+        $email = $request->all()['email'];
+        $user = User::create([
+            'email' => $email
+        ]);
+        if($user){
+            Mail::to($email)->send(new User($email));
+            return new JsonResponse(
+                [
+                    'success' => true,
+                    'message' => "Obrigado por se inscrever em nosso e-mail, verifique sua caixa de entrada"
+                ], 200
+            );
+        }
+    }
 }
