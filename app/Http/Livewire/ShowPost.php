@@ -40,4 +40,20 @@ class ShowPost extends Component
     {
         $this->post = Post::where('slug', $slug)->firstOrFail();
     }
+
+
+    public function like($idPost)
+    {
+        $post = Post::find($idPost);
+
+        $post->likes()->create([
+            'user_id' => auth()->user()->id
+        ]);
+    }
+
+    public function unlike(Post $post)
+    {
+
+        $post->likes()->delete();
+    }
 }

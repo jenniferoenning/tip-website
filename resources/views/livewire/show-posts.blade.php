@@ -64,11 +64,11 @@
                                             <div class="grid gap-2 lg:grid-cols-3">
                                                 <div class="flex items-center">
                                                     <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
-                                                    <p>1.500</p>
+                                                    <p>{{ $post->likes->count() }}</p>
                                                 </div>
                                                 <div class="flex items-center ml-2">
                                                     <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
-                                                    <p>20</p>
+                                                    <p>{{ $post->comments->count() }}</p>
                                                 </div>
                                             </div>
                                         </div>

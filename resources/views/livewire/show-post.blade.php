@@ -26,6 +26,16 @@
 
         <section class="col-span-8 col-start-5 mt-10 space-y-6">
             <div class="xl:container mx-auto my-5">
+                <div class="max-w-sm w-full lg:max-w-full lg:flex mb-5">
+                    <div class="mr-3">
+                        <p class="text-sm text-gray-800">{{ $post->likes->count() }}</p>
+                    </div>
+                    @if($post->likes->count()) 
+                        <a href="#" wire:click.prevent="unlike({{ $post->id }})" class="text-sm text-red-600">Descurtir</a>
+                    @else
+                        <a href="#" wire:click.prevent="like({{ $post->id }})" class="text-sm">Curtir</a>
+                    @endif  
+                </div>
                 @auth
                 <form method="POST" action="/posts/{{ $post->slug }}/comentarios">
                 @csrf
