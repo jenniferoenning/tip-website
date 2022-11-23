@@ -28,13 +28,25 @@
             <div class="xl:container mx-auto my-5">
                 <div class="max-w-sm w-full lg:max-w-full lg:flex mb-5">
                     <div class="mr-3">
-                        <p class="text-sm text-gray-800">{{ $post->likes->count() }}</p>
+                        <p class="text-sm text-gray-800 py-2 px-2 ">{{ $post->likes->count() }}</p>
                     </div>
                     @if($post->likes->count()) 
-                        <a href="#" wire:click.prevent="unlike({{ $post->id }})" class="text-sm text-red-600">Descurtir</a>
+                        <a href="#" wire:click.prevent="unlike({{ $post->id }})" class="text-sm border rounded-xl py-2 px-2 text-red-600 hover:bg-gray-200">Descurtir</a>
                     @else
-                        <a href="#" wire:click.prevent="like({{ $post->id }})" class="text-sm">Curtir</a>
-                    @endif  
+                        <a href="#" wire:click.prevent="like({{ $post->id }})" class="text-sm border rounded-xl py-2 px-2 hover:bg-gray-200">Curtir</a>
+                    @endif 
+
+                    <button data-tooltip-target="tooltip-click" data-tooltip-trigger="click" class="clipboard border rounded-xl sharebtn relative flex z-10 text-sm ml-3 py-2 px-2 hover:bg-gray-200" title="Clique para copiar o url">
+                        <span class="inline-block placeholder-gray-400">Compartilhar</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-5 w-6 my-1 text-gray-500">
+                            <path fill="currentColor" d="M352 320c-22.608 0-43.387 7.819-59.79 20.895l-102.486-64.054a96.551 96.551 0 0 0 0-41.683l102.486-64.054C308.613 184.181 329.392 192 352 192c53.019 0 96-42.981 96-96S405.019 0 352 0s-96 42.981-96 96c0 7.158.79 14.13 2.276 20.841L155.79 180.895C139.387 167.819 118.608 160 96 160c-53.019 0-96 42.981-96 96s42.981 96 96 96c22.608 0 43.387-7.819 59.79-20.895l102.486 64.054A96.301 96.301 0 0 0 256 416c0 53.019 42.981 96 96 96s96-42.981 96-96-42.981-96-96-96z">
+                            </path>
+                        </svg>
+                    </button> 
+                    <div id="tooltip-click" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+                        Url copiado!
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
                 </div>
                 @auth
                 <form method="POST" action="/posts/{{ $post->slug }}/comentarios">
@@ -86,8 +98,8 @@
                 </section>
             @endforeach
         @else 
-            <div>
-                <h2>Nenhum comentário</h2>
+            <div class="xl:container mx-auto my-5 pt-5">
+                <h2>Nenhum comentário...</h2>
             </div>
         @endif
         <div class="max-w-7xl mx-auto lg:px-8">

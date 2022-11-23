@@ -9,6 +9,9 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <script src="https://kit.fontawesome.com/2b5c8c29fc.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+        <script src="{{ asset('js/share.js') }}"></script>
 
         <!-- Styles -->
         @livewireStyles
@@ -41,6 +44,17 @@
 
         @stack('modals')
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+        <script type="text/javascript">
+            var $temp = $("<input>");
+            var $url = $(location).attr('href');
+
+            $('.clipboard').on('click', function() {
+              $("body").append($temp);
+              $temp.val($url).select();
+              document.execCommand("copy");
+              $temp.remove();
+            })
+        </script>
         @livewireScripts
         
         <footer class="bg-blue-200 py-8">
