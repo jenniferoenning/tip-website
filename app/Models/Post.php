@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $fillable = ['title', 'description', 'slug', 'post_photo_path', 'category_id', 'user_id', 'url_image'];
+    protected $fillable = ['title', 'description', 'slug', 'post_photo_path', 'category_id', 'user_id', 'url_image', 'sentiment_score'];
 
     public function comments()
     {

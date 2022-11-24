@@ -14,7 +14,7 @@ class AddScorePostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('sentiment score')->nullable();
+            $table->string('sentiment_score')->nullable();
         });
     }
 
