@@ -44,7 +44,7 @@
                                     <div class="space-y-0.5 font-medium dark:text-white text-left">
                                         <div>{{ $post->user->name }}</div>
                                         <div class="text-sm font-light text-gray-500 dark:text-gray-400">
-                                            <div class="grid gap-2 lg:grid-cols-3">
+                                            <div class="flex flex-wrap items-center">
                                                 <div class="flex items-center">
                                                     <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
                                                     <p>{{ $post->likes->count() }}</p>
