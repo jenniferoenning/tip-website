@@ -37,9 +37,9 @@
                     </div>
                     <div>
                         @if($post->likes->count()) 
-                            <a href="#" wire:click.prevent="unlike({{ $post->id }})" class="text-sm self-center border rounded-xl py-2 px-2 text-red-600 hover:bg-gray-200">Descurtir</a>
+                            <a href="#" wire:click.prevent="unlike({{ $post->id }})" class="text-sm self-center border rounded-xl py-3 px-3 text-red-600 hover:bg-gray-200">Descurtir</a>
                         @else
-                            <a href="#" wire:click.prevent="like({{ $post->id }})" class="text-sm self-center border rounded-xl py-2 px-2 hover:bg-gray-200">Curtir</a>
+                            <a href="#" wire:click.prevent="like({{ $post->id }})" class="clipboard border rounded-xl sharebtn relative flex z-10 text-sm ml-3 py-3 px-3 hover:bg-gray-200">Curtir</a>
                         @endif 
                     </div>
                     <div>
