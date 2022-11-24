@@ -105,11 +105,7 @@
                             </div>
                         </div>
                     @endforeach
-                 @else 
-                    <div class="mt-5">
-                        <h2>Nenhuma postagem por aqui...</h2>
-                    </div>
-                @endif
+                 @endif
             </div>
         </div>
         <div class="flex items-center justify-center mt-10">
