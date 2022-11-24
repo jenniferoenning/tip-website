@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
-class CommentController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,10 @@ class CommentController extends Controller
      */
     public function index()
     {
-       $comments = Comment::all();
+       $posts = Post::all();
        
-        if($comments){
-            return response()->json($comments);
+        if($posts){
+            return response()->json($posts);
         }
         else {
             return response()->json(false);
@@ -49,15 +49,15 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-       $comment = Comment::find($id);
+       $post = Post::find($id);
        
-        if($comment){
-            return response()->json($comment);
+        if($post){
+            return response()->json($post);
         }
         else {
             return response()->json(false);
@@ -67,16 +67,16 @@ class CommentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, $id)
     {
-        $comment = Comment::findOrFail($id);
+        $post = Post::findOrFail($id);
 
-        if($comment){
-            $comment->update($request->all());
-            return $comment;
+        if($post){
+            $post->update($request->all());
+            return $post;
         }
         else {
             return response()->json(false);
