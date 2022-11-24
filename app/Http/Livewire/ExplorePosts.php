@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Post;
+use App\Models\Category;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -10,34 +11,16 @@ class ExplorePosts extends Component
 {
     use WithPagination;
     public $searchTerm;
+    public $category_id;
 
     public function render()
     {
-        $query = '%'.$this->searchTerm.'%';
-
-        $posts = Post::where('title', 'like', '%'.$this->searchTerm.'%')->latest()->paginate(6);
-
+        $categories = Category::all();
+        $posts = Post::where('title', 'like', '%' . $this->searchTerm . '%')->where('category_id', 'like', '%' . $this->category_id . '%')->latest()->paginate(6);
+        
         return view('livewire.explore-posts', [
-            'posts' => $posts
+            'posts' => $posts,
+            'categories' => $categories
         ]);
     }
-
-    public function like($idPost)
-    {
-        $post = Post::find($idPost);
-
-        $post->likes()->create([
-            'user_id' => auth()->user()->id
-        ]);
-    }
-
-    public function unlike(Post $post)
-    {
-
-        $post->likes()->delete();
-    }
-
-
 }
-
-
