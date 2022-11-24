@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('slug')->unique();
+            $table->float('sentiment_score')->nullable();
             $table->string('url_image')->nullable();
             $table->string('post_photo_path')->nullable();
             $table->timestamps();
