@@ -5,7 +5,8 @@ use App\Http\Livewire\{
     CreatePosts,
     ExplorePosts,
     ShowPost,
-    EditPost
+    EditPost,
+    Aboutus
 };
 use App\Http\Livewire\User\UploadPhoto;
 use App\Http\Controllers\PostCommentsController;
@@ -20,6 +21,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
 
+    Route::get('/quem-somos', Aboutus::class)->name('about');
     Route::get('/nova_postagem', CreatePosts::class)->name('create.posts');
     Route::post('posts/{post:slug}/comentarios', [PostCommentsController::class, 'store']);
     Route::get('explorar', ExplorePosts::class)->name('explorar');
