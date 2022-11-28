@@ -44,6 +44,10 @@
                                     <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $post->title }}</h5>
                                 </a>
                                 <p class="text-xs pb-3 pt-2 text-gray-500">Categoria: {{ $post->category['name'] }}</p>
+                                @if(!empty($post->sentiment_score))
+                                    <span class="text-xs pb-3 pt-2 text-gray-500">Score de sentimentos:</span>
+                                    <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}%</p>
+                                @endif
                                 <figcaption class="flex flex-row items-center space-x-3">
                                     <img class="w-9 h-9 rounded-full object-cover" src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}">
                                     <div class="space-y-0.5 font-medium dark:text-white text-left">

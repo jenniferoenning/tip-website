@@ -17,7 +17,12 @@
                         <h1 class="text-sm text-gray-600 break-all"> Categoria: {{ $post->category['name']}} </h1>
                         <br>
                         <p class="text-gray-600 break-all">Descrição:</p>
-                        <p class="text-gray-600 break-all">{{ $post->description }} </p>  
+                        <p class="text-gray-600 break-all">{{ $post->description }} </p>
+                        <br />
+                        @if(!empty($post->sentiment_score))
+                            <p class="text-gray-600 break-all">Score de sentimentos:</p>
+                            <p class="text-gray-600 break-all">{{ $post->sentiment_score }}%</p>
+                        @endif
                     </div>
                     <div>
                         @if ($post->post_photo_path)

@@ -7,20 +7,27 @@
 
     <section>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-5 justify-items-center">
-            <form class="mt-3">
-                <div class="flex">
-                    <select wire:model="category_id" class="items-center py-2.5 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-orange-300 focus:border-orange-300">
-                        <option value="">Categorias</option>
-                        @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                    <div class="relative w-full">
-                        <input wire:model="searchTerm" type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-orange-300 focus:border-orange-300" placeholder="Pesquise o título" required>
+            <div>
+                <form class="mt-3">
+                    <div class="md:flex text-left mx-8">
+                        <select wire:model="category_id" class="items-center py-2.5 text-sm text-gray-900 bg-gray-100 border border-gray-300 md:rounded-l-lg hover:bg-gray-200 focus:ring-orange-300 focus:border-orange-300 mb-2">
+                            <option value="">Categorias</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                        <div class="relative w-full">
+                            <input wire:model="searchTerm" type="search" id="search-dropdown" class="p-2.5 md:w-full z-20 text-sm text-gray-900 bg-gray-50 md:border-l-gray-50 border-l-2 border border-gray-300 focus:ring-orange-300 focus:border-orange-300 mb-2" placeholder="Pesquise o título" required>
+                        </div>
+                        <select wire:model="sentiment_score" class="items-center py-2.5 text-sm text-gray-900 bg-gray-100 border border-gray-300 md:rounded-r-lg hover:bg-gray-200 focus:ring-orange-300 focus:border-orange-300 mb-2">
+                            <option value="">Relevâncias</option>
+                            <option value="1">Análises relevantes</option>
+                            <option value="2">Análises menos relevantes</option>
+                        </select>
                     </div>
-                </div>
-            </form>
-            <div class="grid gap-2 lg:grid-cols-3 justify-center">
+                </form>
+            </div>
+            <div class="grid gap-2 lg:grid-cols-3 justify-items-center">
                 @if($posts->isNotEmpty())
                     @foreach($posts as $post)
                         <div class="w-full rounded-lg shadow-md lg:max-w-sm max-w-sm bg-white rounded-lg border border-gray-200 shadow-md mt-5">
@@ -39,6 +46,10 @@
                                     <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $post->title }}</h5>
                                 </a>
                                 <p class="text-xs pb-3 pt-2 text-gray-500">Categoria: {{ $post->category['name'] }}</p>
+                                @if(!empty($post->sentiment_score))
+                                    <span class="text-xs pb-3 pt-2 text-gray-500">Score de sentimentos:</span>
+                                    <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}%</p>
+                                @endif
                                 <figcaption class="flex flex-row items-center space-x-3">
                                     <img class="w-9 h-9 rounded-full object-cover" src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}">
                                     <div class="space-y-0.5 font-medium dark:text-white text-left">

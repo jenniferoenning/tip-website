@@ -30,6 +30,7 @@ class PostFactory extends Factory
             'category_id' => Category::all()->random()->id,
             //'post_photo_path' => $this->faker->imageUrl(),
             // 'url_image' =>
+            'sentiment_score' => $this->faker->randomDigit() . '.' . $this->faker->randomNumber(4, true)
         ];
     }
 }
