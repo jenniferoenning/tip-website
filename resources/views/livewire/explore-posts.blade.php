@@ -46,9 +46,24 @@
                                     <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $post->title }}</h5>
                                 </a>
                                 <p class="text-xs pb-3 pt-2 text-gray-500">Categoria: {{ $post->category['name'] }}</p>
-                                @if(!empty($post->sentiment_score))
+                                @if(!empty($post->sentiment_score) && $post->sentiment_score >= 1.0 or $post->sentiment_score > 0.7)
                                     <span class="text-xs pb-3 pt-2 text-gray-500">Score de sentimentos:</span>
-                                    <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}%</p>
+                                    <div class="flex">
+                                        <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
+                                        <img class="w-8" src="{{ asset('imgs/arrow_up.svg') }}" />
+                                    </div>
+                                @elseif(!empty($post->sentiment_score) && $post->sentiment_score >= 0.7 or $post->sentiment_score >= 0.5 or $post->sentiment_score >= 0.3)
+                                    <span class="text-xs pb-3 pt-2 text-gray-500">Score de sentimentos:</span>
+                                    <div class="flex">
+                                        <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
+                                        <img class="w-8" src="{{ asset('imgs/neutral.svg') }}" />
+                                    </div>
+                                @elseif(!empty($post->sentiment_score) && $post->sentiment_score < 0.3)
+                                    <span class="text-xs pb-3 pt-2 text-gray-500">Score de sentimentos:</span>
+                                    <div class="flex">
+                                        <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
+                                        <img class="w-8" src="{{ asset('imgs/arrow_down.svg') }}" />
+                                    </div>
                                 @endif
                                 <figcaption class="flex flex-row items-center space-x-3">
                                     <img class="w-9 h-9 rounded-full object-cover" src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}">

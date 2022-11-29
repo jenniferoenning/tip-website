@@ -22,7 +22,7 @@ class CommentFactory extends Factory
             'body' => $this->faker->paragraph(2),
             'user_id' => User::factory(),
             'post_id' => Post::factory(),
-            'sentiment_score' => $this->faker->randomDigit() . '.' . $this->faker->randomNumber(4, true)
+            'sentiment_score' => $this->faker->numberBetween(0, 1) . '.' . $this->faker->randomNumber(4, true)
         ];
     }
 }
