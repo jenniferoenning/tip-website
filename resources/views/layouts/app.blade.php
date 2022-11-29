@@ -58,7 +58,7 @@
         @livewireScripts
         
         <footer class="bg-blue-200 py-8">
-            <p class="text-gray-700 font-extrabold text-center">Copyright © 2022 Tip. All Rights Reseverd</p>
+            <p class="text-gray-700 font-extrabold text-center">Copyright © 2022 Tip. Todos os direitos reservados</p>
         </footer>
     </body>
 </html>
