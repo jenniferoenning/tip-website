@@ -19,9 +19,24 @@
                         <p class="text-gray-600 break-all">Descrição:</p>
                         <p class="text-gray-600 break-all">{{ $post->description }} </p>
                         <br />
-                        @if(!empty($post->sentiment_score))
+                        @if(!empty($post->sentiment_score) && $post->sentiment_score >= 1.0 or $post->sentiment_score > 0.7)
                             <p class="text-gray-600 break-all">Score de sentimentos:</p>
-                            <p class="text-gray-600 break-all">{{ $post->sentiment_score }}%</p>
+                            <div class="flex">
+                                <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
+                                <img class="w-8" src="{{ asset('imgs/arrow_up.svg') }}" />
+                            </div>
+                        @elseif(!empty($post->sentiment_score) && $post->sentiment_score >= 0.7 or $post->sentiment_score >= 0.5 or $post->sentiment_score >= 0.3)
+                            <p class="text-gray-600 break-all">Score de sentimentos:</p>
+                            <div class="flex">
+                                <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
+                                <img class="w-8" src="{{ asset('imgs/neutral.svg') }}" />
+                            </div>
+                        @elseif(!empty($post->sentiment_score) && $post->sentiment_score < 0.3)
+                            <p class="text-gray-600 break-all">Score de sentimentos:</p>
+                            <div class="flex">
+                                <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
+                                <img class="w-8" src="{{ asset('imgs/arrow_down.svg') }}" />
+                            </div>
                         @endif
                     </div>
                     <div>
