@@ -16,7 +16,8 @@ class ExplorePosts extends Component
 
     public function render()
     {
-
+        $posts = Post::where('title', 'like', '%' . $this->searchTerm . '%')->where('category_id', 'like', '%' . $this->category_id . '%')->latest()->paginate(6);
+        
         if($this->sentiment_score == "" && $this->category_id == "" && $this->searchTerm == ""){
             $posts = Post::where('title', 'like', '%' . $this->searchTerm . '%')->where('category_id', 'like', '%' . $this->category_id . '%')->latest()->paginate(6);
         }else if($this->sentiment_score == 1){
