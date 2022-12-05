@@ -55,7 +55,7 @@
                     </a>
                     <div class="p-5">
                         <a href="/login">
-                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
+                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
                         </a>
                         <figcaption class="flex items-center space-x-3">
                             <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
@@ -83,7 +83,7 @@
                     </a>
                     <div class="p-5">
                         <a href="/login">
-                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
+                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
                         </a>
                         <figcaption class="flex items-center space-x-3">
                             <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
@@ -111,7 +111,7 @@
                     </a>
                     <div class="p-5">
                         <a href="/login">
-                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
+                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
                         </a>
                         <figcaption class="flex items-center space-x-3">
                             <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
@@ -139,7 +139,7 @@
                     </a>
                     <div class="p-5">
                         <a href="/login">
-                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
+                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
                         </a>
                         <figcaption class="flex items-center space-x-3">
                             <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
@@ -167,7 +167,7 @@
                     </a>
                     <div class="p-5">
                         <a href="/login">
-                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
+                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
                         </a>
                         <figcaption class="flex items-center space-x-3">
                             <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/2220401/pexels-photo-2220401.jpeg?dpr=1" alt="profile picture">
@@ -195,7 +195,7 @@
                     </a>
                     <div class="p-5">
                         <a href="/login">
-                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
+                            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">Lorem Ipsum is simply dummy text of the printing and typesetting</h5>
                         </a>
                         <figcaption class="flex items-center space-x-3">
                             <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
