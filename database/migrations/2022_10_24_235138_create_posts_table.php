@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->string('slug')->unique();
             $table->float('sentiment_score')->nullable();
             $table->string('url_image')->nullable();
