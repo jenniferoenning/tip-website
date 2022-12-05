@@ -27,16 +27,13 @@ class EditPost extends Component
 
     protected $rules = [
         'title'             => 'required:min:3|max:255',
-        'description'       => 'required:min:3|max:255',
         'category'          => 'required',
-        'post_photo_path'   => 'required|image|max:1024',
+        'post_photo_path'   => 'image',
     ];
 
     protected $messages = [
         'title.required' => 'Campo título vazio.',
-        'description.required' => 'Campo descrição vazio.',
         'category.required' => 'Campo categoria vazio.',
-        'post_photo_path.required' => 'Este campo de foto está vazio.',
     ];
 
     public function mount($id)

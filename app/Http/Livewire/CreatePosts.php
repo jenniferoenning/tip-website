@@ -26,8 +26,7 @@ class CreatePosts extends Component
     public $post;
 
     protected $rules = [
-        'post_photo_path' => 'required|image|max:1024',
-        'description' => 'required:min:3|max:1200',
+        'post_photo_path' => 'image',
         'title' => 'required:min:3|max:255',
         'category' => 'required'
     ];
