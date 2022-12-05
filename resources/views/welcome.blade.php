@@ -61,7 +61,7 @@
                             <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
                             <div class="space-y-0.5 font-medium text-left">
                                 <div>Jese Leos</div>
-                                <div class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                <div class="text-sm font-light text-gray-500">
                                     <div class="grid gap-2 lg:grid-cols-3">
                                         <div class="flex items-center">
                                             <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
@@ -89,7 +89,7 @@
                             <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
                             <div class="space-y-0.5 font-medium text-left">
                                 <div>Jese Leos</div>
-                                <div class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                <div class="text-sm font-light text-gray-500">
                                     <div class="grid gap-2 lg:grid-cols-3">
                                         <div class="flex items-center">
                                             <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
@@ -117,7 +117,7 @@
                             <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
                             <div class="space-y-0.5 font-medium text-left">
                                 <div>Jese Leos</div>
-                                <div class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                <div class="text-sm font-light text-gray-500">
                                     <div class="grid gap-2 lg:grid-cols-3">
                                         <div class="flex items-center">
                                             <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
@@ -145,7 +145,7 @@
                             <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
                             <div class="space-y-0.5 font-medium text-left">
                                 <div>Jese Leos</div>
-                                <div class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                <div class="text-sm font-light text-gray-500">
                                     <div class="grid gap-2 lg:grid-cols-3">
                                         <div class="flex items-center">
                                             <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
@@ -173,7 +173,7 @@
                             <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/2220401/pexels-photo-2220401.jpeg?dpr=1" alt="profile picture">
                             <div class="space-y-0.5 font-medium text-left">
                                 <div>Jese Leos</div>
-                                <div class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                <div class="text-sm font-light text-gray-500">
                                     <div class="grid gap-2 lg:grid-cols-3">
                                         <div class="flex items-center">
                                             <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
@@ -201,7 +201,7 @@
                             <img class="w-9 h-9 rounded-full object-cover" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile picture">
                             <div class="space-y-0.5 font-medium text-left">
                                 <div>Jese Leos</div>
-                                <div class="text-sm font-light text-gray-500 dark:text-gray-400">
+                                <div class="text-sm font-light text-gray-500">
                                     <div class="grid gap-2 lg:grid-cols-3">
                                         <div class="flex items-center">
                                             <img class="mr-2" width="15" height="15" src="{{ asset('imgs/heart.svg') }}">
