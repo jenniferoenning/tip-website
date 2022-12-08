@@ -95,7 +95,7 @@
                                                 </div>
                                                 <div class="flex items-center ml-2">
                                                     <img cqlass="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
-                                                    <p>{{ $post->comments->count() }}</p>
+                                                    <p class="ml-2">{{ $post->comments->count() }}</p>
                                                 </div>
                                             </div>
                                         </div>
