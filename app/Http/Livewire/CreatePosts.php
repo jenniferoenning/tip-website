@@ -59,7 +59,8 @@ class CreatePosts extends Component
             'category_id' => $category_id,
             'slug' => SlugService::createSlug(Post::class, 'slug', $this->title),
             'post_photo_path' => basename($path),
-            'url_image' => Storage::disk('s3')->url($path)
+            'url_image' => Storage::disk('s3')->url($path),
+            'sentiment_score' => 0.5
         ]);
 
         return redirect('/postagens');
