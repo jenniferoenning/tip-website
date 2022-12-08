@@ -48,21 +48,39 @@
                                 <p class="text-xs pb-3 pt-2 text-gray-500">Categoria: {{ $post->category['name'] }}</p>
                                 @if(!empty($post->sentiment_score) && $post->sentiment_score >= 1.0 or $post->sentiment_score > 0.7)
                                     <span class="text-xs pb-3 pt-2 text-gray-500">Score de sentimentos:</span>
-                                    <div class="flex">
+                                    <div class="flex items-center">
                                         <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
                                         <img class="w-8" src="{{ asset('imgs/arrow_up.svg') }}" />
+                                        <img data-tooltip-target="tooltip-green" style="width: 20px; height: 20px" src="{{ asset('imgs/info-fill.svg') }}">
+                                        <div id="tooltip-green" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+                                            Este ícone em <span class="text-lime-500">verde</span> indica uma postagem <br />
+                                            com análise de sentimentos positiva.
+                                            <div class="tooltip-arrow" data-popper-arrow></div>
+                                        </div>
                                     </div>
                                 @elseif(!empty($post->sentiment_score) && $post->sentiment_score >= 0.7 or $post->sentiment_score >= 0.5 or $post->sentiment_score >= 0.3)
                                     <span class="text-xs pb-3 pt-2 text-gray-500">Score de sentimentos:</span>
                                     <div class="flex">
                                         <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
                                         <img class="w-8" src="{{ asset('imgs/neutral.svg') }}" />
+                                        <img data-tooltip-target="tooltip-blue" style="width: 20px; height: 20px" src="{{ asset('imgs/info-fill.svg') }}">
+                                        <div id="tooltip-blue" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+                                            Este ícone em <span class="text-cyan-500">azul</span> indica uma postagem <br />
+                                            com análise de sentimentos neutro.
+                                            <div class="tooltip-arrow" data-popper-arrow></div>
+                                        </div>
                                     </div>
                                 @elseif(!empty($post->sentiment_score) && $post->sentiment_score < 0.3)
                                     <span class="text-xs pb-3 pt-2 text-gray-500">Score de sentimentos:</span>
                                     <div class="flex">
                                         <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
                                         <img class="w-8" src="{{ asset('imgs/arrow_down.svg') }}" />
+                                            <img data-tooltip-target="tooltip-red" style="width: 20px; height: 20px" src="{{ asset('imgs/info-fill.svg') }}">
+                                            <div id="tooltip-red" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+                                                Este ícone em <span class="text-red-500">red</span> indica uma postagem <br />
+                                                com análise de sentimentos negativa.
+                                                <div class="tooltip-arrow" data-popper-arrow></div>
+                                            </div>
                                     </div>
                                 @endif
                                 <figcaption class="flex flex-row items-center space-x-3">
@@ -76,7 +94,7 @@
                                                     <p>{{ $post->likes->count() }}</p>
                                                 </div>
                                                 <div class="flex items-center ml-2">
-                                                    <img class="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
+                                                    <img cqlass="mr-2" width="15" height="15" src="{{ asset('imgs/comment.svg') }}">
                                                     <p>{{ $post->comments->count() }}</p>
                                                 </div>
                                             </div>
