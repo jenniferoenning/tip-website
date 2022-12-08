@@ -60,7 +60,7 @@
                                     </div>
                                 @elseif(!empty($post->sentiment_score) && $post->sentiment_score >= 0.7 or $post->sentiment_score >= 0.5 or $post->sentiment_score >= 0.3)
                                     <span class="text-xs pb-3 pt-2 text-gray-500">Score de sentimentos:</span>
-                                    <div class="flex">
+                                    <div class="flex items-center">
                                         <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
                                         <img class="w-8" src="{{ asset('imgs/neutral.svg') }}" />
                                         <img data-tooltip-target="tooltip-blue" style="width: 20px; height: 20px" src="{{ asset('imgs/info-fill.svg') }}">
@@ -72,12 +72,12 @@
                                     </div>
                                 @elseif(!empty($post->sentiment_score) && $post->sentiment_score < 0.3)
                                     <span class="text-xs pb-3 pt-2 text-gray-500">Score de sentimentos:</span>
-                                    <div class="flex">
+                                    <div class="flex items-center">
                                         <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
                                         <img class="w-8" src="{{ asset('imgs/arrow_down.svg') }}" />
                                             <img data-tooltip-target="tooltip-red" style="width: 20px; height: 20px" src="{{ asset('imgs/info-fill.svg') }}">
                                             <div id="tooltip-red" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
-                                                Este ícone em <span class="text-red-500">red</span> indica uma postagem <br />
+                                                Este ícone em <span class="text-red-500">vermelho</span> indica uma postagem <br />
                                                 com análise de sentimentos negativa.
                                                 <div class="tooltip-arrow" data-popper-arrow></div>
                                             </div>
