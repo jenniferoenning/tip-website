@@ -100,7 +100,6 @@
                                 </div>
                                 <input id="dropzone-file" type="file" wire:model="post_photo_path" class="hidden" />
                                 <div wire:loading wire:target="post_photo_path">Carregando...</div>
-                                @error('post_photo_path') {{ $message }} @enderror
                             </label>
                         </div>
                     </div>

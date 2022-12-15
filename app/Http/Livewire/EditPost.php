@@ -28,7 +28,7 @@ class EditPost extends Component
     protected $rules = [
         'title'             => 'required:min:3|max:255',
         'category'          => 'required',
-        'post_photo_path'   => 'image',
+        'post_photo_path'   => 'nullable|image',
     ];
 
     protected $messages = [
@@ -51,19 +51,29 @@ class EditPost extends Component
         $post = Post::find($this->postId);
 
         $this->validate();
-        $path = $this->post_photo_path->store('posts', 's3');
-        Storage::disk('s3')->setVisibility($path, 'public');
-
         $category_id = $this->category;
 
-        $post->update([
-            'title' => $this->title,
-            'description' => $this->description,
-            'category_id' => $category_id,
-            'slug' => SlugService::createSlug(Post::class, 'slug', $this->title),
-            'post_photo_path' => basename($path),
-            'url_image' => Storage::disk('s3')->url($path)
-        ]);
+        if($this->post_photo_path){
+
+            $path = $this->post_photo_path->store('posts', 's3');
+            Storage::disk('s3')->setVisibility($path, 'public');
+
+            $post->update([
+                'title' => $this->title,
+                'description' => $this->description,
+                'category_id' => $category_id,
+                'slug' => SlugService::createSlug(Post::class, 'slug', $this->title),
+                'post_photo_path' => basename($path),
+                'url_image' => Storage::disk('s3')->url($path)
+            ]);
+        }else{
+            $post->update([
+                'title' => $this->title,
+                'description' => $this->description,
+                'category_id' => $category_id,
+                'slug' => SlugService::createSlug(Post::class, 'slug', $this->title),
+            ]);
+        }
 
         return redirect('/postagens');
     }
