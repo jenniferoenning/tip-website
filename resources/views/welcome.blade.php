@@ -43,7 +43,7 @@
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center">
                     <img class="inline-flex h-20 w-20 mb-5" src="{{ asset('imgs/tip-logo-white.png') }}">
                     <h1 class="text-white font-extrabold text-5xl">TIP</h1>
-                    <span class="text-white font-extrabold text-2xl">Tranformar ideias em postagens</span>
+                    <span class="text-white font-extrabold text-2xl">Transformar ideias em postagens</span>
                 </div>
             </div>
         </section>
@@ -220,7 +220,7 @@
             </div>
         </section>
         <footer class="bg-blue-200 py-8 mt-5">
-            <p class="text-gray-700 font-extrabold text-center">Copyright © 2022 Tip. All Rights Reseverd</p>
+            <p class="text-gray-700 font-extrabold text-center">Copyright © 2022 Tip. Todos os direitos reservados</p>
         </footer>
         <script src="../path/to/flowbite/dist/flowbite.js"></script>
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
