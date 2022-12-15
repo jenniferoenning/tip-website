@@ -83,9 +83,9 @@
                                     </div>
                                 @endif
 
-                                <figcaption class="flex flex-row items-center space-x-3">
+                                <figcaption class="flex justify-between">
                                     <img class="w-9 h-9 rounded-full object-cover" src="{{ url("{$post->user->profile_photo_url}") }}" alt="{{ $post->user->name }}">
-                                    <div class="space-y-0.5 font-medium dark:text-white text-left">
+                                    <div class="font-medium dark:text-white text-left">
                                         <div>{{ $post->user->name }}</div>
                                         <div class="text-sm font-light text-gray-500 dark:text-gray-400">
                                             <div class="flex flex-wrap items-center">
@@ -100,7 +100,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex flex-row">
+                                    <div class="flex ml-4">
                                         <div>
                                             <a href="/postagem/editar/{{ $post->id}}">
                                                 <span class="sm:block">
