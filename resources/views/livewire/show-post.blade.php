@@ -19,8 +19,8 @@
                         <p class="text-gray-600 break-all">Descrição:</p>
                         <p class="text-gray-600 break-all">{{ $post->description }} </p>
                         <br />
-                        @if(!empty($post->sentiment_score) && $post->sentiment_score >= 1.0 or $post->sentiment_score > 0.7)
-                            <p class="text-gray-600 break-all">Score de sentimentos:</p>
+                        @if(!empty($post->sentiment_score) && $post->sentiment_score >= 1.0 or $post->sentiment_score > 0.5)
+                            <span class="text-xs pb-3 pt-2 text-gray-500">Score de sentimentos:</span>
                             <div class="flex items-center">
                                 <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
                                 <img class="w-8" src="{{ asset('imgs/arrow_up.svg') }}" />
@@ -31,8 +31,8 @@
                                     <div class="tooltip-arrow" data-popper-arrow></div>
                                 </div>
                             </div>
-                        @elseif(!empty($post->sentiment_score) && $post->sentiment_score >= 0.7 or $post->sentiment_score >= 0.5 or $post->sentiment_score >= 0.3)
-                            <p class="text-gray-600 break-all">Score de sentimentos:</p>
+                        @elseif(!empty($post->sentiment_score) && $post->sentiment_score >= 0.5 or $post->sentiment_score >= 0.25)
+                            <span class="text-xs pb-3 pt-2 text-gray-500">Score de sentimentos:</span>
                             <div class="flex items-center">
                                 <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
                                 <img class="w-8" src="{{ asset('imgs/neutral.svg') }}" />
@@ -43,8 +43,8 @@
                                     <div class="tooltip-arrow" data-popper-arrow></div>
                                 </div>
                             </div>
-                        @elseif(!empty($post->sentiment_score) && $post->sentiment_score < 0.3)
-                            <p class="text-gray-600 break-all">Score de sentimentos:</p>
+                        @elseif(!empty($post->sentiment_score) && $post->sentiment_score < 0.25 or $post->sentiment_score == 0.00 or $post->sentiment_score < 0.00)
+                            <span class="text-xs pb-3 pt-2 text-gray-500">Score de sentimentos:</span>
                             <div class="flex items-center">
                                 <p class="text-xs pb-3 pt-2 text-gray-500">{{ $post->sentiment_score }}% </p>
                                 <img class="w-8" src="{{ asset('imgs/arrow_down.svg') }}" />
